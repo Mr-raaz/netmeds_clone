@@ -197,7 +197,7 @@ document.querySelector("#pay1").addEventListener("click", func1);
 
   function func1() {
     alert("Thanks for the Order.");
-    window.location.href = "index.html";
+    window.location.href = "order_placed.html";
   }
   document.querySelector("#pay2").addEventListener("click", func2);
 

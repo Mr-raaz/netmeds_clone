@@ -177,7 +177,7 @@ function payment(random) {
                 h3.style.color = "green";
                 img.style.marginTop = "10px";
                 p.innerText = "redirecting to home page";
-                redirect("../index.html");
+                redirect("../order_placed.html");
                 localStorage.setItem("orderHistory", JSON.stringify(cart));
                 localStorage.removeItem("cartitems");
             }).catch(function (res) {
