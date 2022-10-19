@@ -144,6 +144,11 @@ span {
   padding: 16px;
 }
 
+#Unavailable{
+  color: rgb(186, 186, 186);
+  letter-spacing: 1px;
+  font-size: 10px;
+}
 @media all and (min-width: 0px) and (max-width: 768px) {
   .cartMain {
     display: grid;
