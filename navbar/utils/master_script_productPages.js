@@ -1,3 +1,6 @@
+
+
+
 function productPages(pageName){
     
     let page = pageName;
@@ -20,10 +23,8 @@ function productPages(pageName){
             }
          });
 
-//  Filtering filterbox elements >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+         //  Filtering filterbox elements >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 
-        // let uniqueBrandFilterElementArray = [...new Set(categoryfilteredArray.map(item => item.Brands))];
-        //  console.log(unique);
 // Brand Filter >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
          let BrandElementCountObj = {};
          categoryfilteredArray.forEach(function (ele) { 
@@ -95,16 +96,6 @@ function productPages(pageName){
             return 0;
           }
           uniqueCategoriesFilterElementArrayWithCount.sort( compareCategories );
-        // function compare( a, b) {
-        //     if ( a.categories < b.categories){
-        //       return -1;
-        //     }
-        //     if ( a.categories> b.categories ){
-        //       return 1;
-        //     }
-        //     return 0;
-        //   }
-        //   uniqueCategoriesFilterElementArrayWithCount.sort( compare );
      
 //    let test = [...new Set(uniqueBrandFilterElementArrayWithCount.map(item => item.Brands))]
 
@@ -157,7 +148,7 @@ function productPages(pageName){
        
 // sorting >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
          let discountSortedArray =[];
-         let productDataArray=[];
+        let finalFilteredArray=[]
    
          if(FilterCheck===true || FilterCheckMkf===true || FilterCheckCategories===true){
              discountSortedArray = brandfilterSlectedArray .filter((ele)=>{
@@ -170,10 +161,14 @@ function productPages(pageName){
             })
         }
        
-        productDataArray = discountSortedArray.filter((ele)=>{
+        finalFilteredArray = discountSortedArray.filter((ele)=>{
             return (ele.best_price>=minVal && ele.best_price<maxVal)
         })
-        
+
+// Unique array >>>>>>>>>>>>>>>>>>>>>.
+        let productDataArray = [...new Map(finalFilteredArray.map(item =>
+        [item["id"], item])).values()];
+
 // array copied for sorting the elements
         let sorted =[];
         productDataArray.forEach(function(ele,ind){
@@ -293,12 +288,23 @@ function productPages(pageName){
             divimg.addEventListener("click",()=>{
                 gotoDescriptionPage(arr,ind)
             })
+            if(cart.length!==0){
+                for(let l=0; l<cart.length; l++){
+                    if(cart[l].id===ele.id){
+                        btn.style.display="none"
+                        localStorage.setItem("cartitems",JSON.stringify(cart)); 
+                        let addcartbutton = document.querySelectorAll(".divbtn")
+                        let changedqty = cart[l].quantity;
+                        changeAddtoCartbuttonOnclick(ele,ind,divbtn, changedqty,btn);
+                    }
+                }
+            }
+            // btn.style.display="flex"
             setTimeout(()=>{
                 btn.addEventListener("click",function(){
-                    addtocart(arr,ind,btn);
-                    // let cart_items_count = JSON.parse(localStorage.getItem("cartitems")) || [];
-                    // let cart_item_len = cart_items_count.length;
-                    // document.getElementById("cart_count2").innerText = cart_item_len;
+                    addtocart(ele,ind,divbtn,btn);
+                    // location.reload();
+                   
                 })
             },0)
             
@@ -313,7 +319,9 @@ function productPages(pageName){
         prodcategorybrands.innerHTML="";
         let filterbybrandDiv = document.getElementById("filterbybrand");
         filterbybrandDiv.innerHTML="";
+        let i=-1;
         uniqueBrandFilterElementArrayWithCount.map((ele,ind,filterArr)=>{
+            i++;
             let prodcategorybrandsnamesDiv = document.createElement("div");
             prodcategorybrandsnamesDiv.className="prodcategory-brands-names";
             let input = document.createElement("input");
@@ -325,17 +333,21 @@ function productPages(pageName){
             prodcategorybrandsnamesDiv.append(input,lable)
             prodcategorybrands.append(prodcategorybrandsnamesDiv)
             input.addEventListener("click",()=>{
-                filterbrand(ele,ind,input.checked,input.value,input);
+                filterbrand(ele,ind,input.checked,input.value,input,brandbutton);
             })
-
+            
             let brandbutton = document.createElement("button");
             brandbutton.className="fill-brand-name";
             brandbutton.innerText=`${ele.Brands}`
             filterbybrandDiv.append(brandbutton);
             brandbutton.addEventListener("click",()=>{
-                input.checked=true;
-                filterbrand(ele,ind,input.checked,input.value,input);
-                // input.checked=false;
+                if(input.checked===true){
+                    input.checked=false
+                }
+                else{
+                    input.checked=true;
+                }
+                filterbrand(ele,ind,input.checked,input.value,input,brandbutton);
             })
         })
     }
@@ -471,43 +483,40 @@ function productPages(pageName){
     // <<<<<<<<<<<<<<<<<<<<<<<<<   local storage to add to cart      >>>>>>>>>>>>>>>>>>>>>>
    
     let cart = JSON.parse(localStorage.getItem("cartitems")) || [];
-    function addtocart(arr, i,btn){
+    function addtocart(ele, i,divbtn,btn){
         event.preventDefault();
-        let prod = arr.filter(function(ele,ind){
-            return ind===i;
-        })
-
-        if(cart.some(cart => cart.id=== prod[0].id)){
+        document.getElementById("cart_count2").innerText="";
+        // let cart_items_count = JSON.parse(localStorage.getItem("cartitems")) || [];
+        // let cart_item_len = cart_items_count.length;
+        // document.getElementById("cart_count2").innerText = cart_item_len;
+    
+        if(cart.some(cart => cart.id=== ele.id)){
         } 
         else{
-            prod[0].quantity = 1;
-            cart.push(prod[0]);
+            ele.quantity = 1;
+            cart.push(ele);
         }
        
         localStorage.setItem("cartitems",JSON.stringify(cart)); 
-        let addcartbutton = document.querySelectorAll(".divbtn")
 
         let index=-1;
         for(let j=0; j<cart.length; j++){
-            if(cart[j].id===arr[i].id){
+            if(cart[j].id===ele.id){
                 index=j;
             }
         }
-        let changedqty=0;
-        if(index===-1){
-            changedqty=1;
-        }
-        changedqty = cart[index].quantity;
-        changeAddtoCartbuttonOnclick(arr,i,addcartbutton, changedqty,btn);
+        let changedqty=cart[index].quantity;
+        // <div id="cart_items_count"><b id="cart_count">${cart_item_len}</b></div>
+        // let cart_item_len= cart.length;
+        changeAddtoCartbuttonOnclick(ele,i,divbtn,changedqty,btn);
+        let cartitemcount = document.getElementById("cart_count");
+        cartitemcount.innerText= cart.length;
     }
 
-    function changeAddtoCartbuttonOnclick(arr,i,addcartbutton,changedqty,btn){
-        for(let j=0; j<addcartbutton.length;j++){
-            if(j===i){
+    function changeAddtoCartbuttonOnclick(ele,i,divbtn,changedqty,btn){
+       
                 btn.style.display="none"
-                // console.log(addcartbutton[i]);
-                let change = addcartbutton[i];
-                // change.innerHTML="";
+              
                 let plus = document.createElement("button")
                 let qtydiv = document.createElement("div")
                 qtydiv.className="qtydiv"
@@ -535,25 +544,23 @@ function productPages(pageName){
                 plus.style.borderRadius="50%"
                 minus.style.borderRadius="50%"
 
-                change.append(plus,qtydiv,minus);
+                divbtn.append(plus,qtydiv,minus);
 
                 plus.addEventListener("click",()=>{
-                    plusqty(j,qtydiv,arr);
+                    plusqty(qtydiv,ele);
                 })
                 minus.addEventListener("click",()=>{
-                    minusqty(j,arr,addcartbutton,i,btn,plus,qtydiv,minus);
+                    minusqty(ele,divbtn,i,btn,plus,qtydiv,minus);
                 })
-                break;
-            }
-        }
+         
     }
 
     
-    function plusqty(j,qtydiv,arr){
+    function plusqty(qtydiv,ele){
         qtydiv.innerText="";
         let index=-1;
         for(let i=0; i<cart.length; i++){
-            if(cart[i].id===arr[j].id){
+            if(cart[i].id===ele.id){
                 index=i;
             }
         }
@@ -566,14 +573,15 @@ function productPages(pageName){
         else{
             alert("Exceeded the maximum quantity limit per order!")
         }
+        console.log(ele.id);
         qtydiv.innerText=cart[index].quantity;
     }
 
-    function minusqty(j,arr,addcartbutton,i,btn,plus,qtydiv,minus){
+    function minusqty(ele,divbtn,i,btn,plus,qtydiv,minus){
        
         let index=-1;
         for(let i=0; i<cart.length; i++){
-            if(cart[i].id===arr[j].id){
+            if(cart[i].id===ele.id){
                 index=i;
             }
         }
@@ -586,6 +594,8 @@ function productPages(pageName){
             localStorage.setItem("cartitems",JSON.stringify(cart));
         }
         else if(changedqty==0){
+            let cartitemcount = document.getElementById("cart_count");
+            cartitemcount.innerText= cart.length-1;
             plus.style.display="none";
             qtydiv.style.display="none"
             minus.style.display="none"
@@ -658,15 +668,32 @@ function productPages(pageName){
     let selectedBrandsForFilter = [];
     let brandnameString="";
     let execute = false;
-    function filterbrand(ele,ind,checked,value,input){
+    function filterbrand(ele,ind,checked,value,input,brandbutton){
         let brandnamefilter = document.querySelectorAll(".checkbox-brandfilter")
         execute=true;
         brandnameString="";
         if(checked===true){
             selectedBrandsForFilter.push(value);
             getData();
+            // styling
+            brandbutton.style.border="1px solid #32aeb1"
+            brandbutton.style.color="#32aeb1"
+            let popular = document.getElementById("popular")
+            popular.style.border="none"
+            popular.style.color=""
+            let hightolow  = document.getElementById("hightolow")
+            hightolow .style.border="none"
+            hightolow .style.color=""
+            let lowtohigh = document.getElementById("lowtohigh")
+            lowtohigh.style.border="none"
+            lowtohigh.style.color=""
+            let discount= document.getElementById("discount")
+            discount.style.border="none"
+            discount.style.color=""
         }
         else{
+            brandbutton.style.border=""
+            brandbutton.style.color=""
             for(let i=0; i<selectedBrandsForFilter.length; i++){
                 if(selectedBrandsForFilter[i]===value){
                     
@@ -678,14 +705,26 @@ function productPages(pageName){
     }
 
     let selectedmkfForFilter = [];
-
     let executeMkf = false;
     function filtermkf(ele,ind,checked,value,input){
         executeMkf=true;
-
         if(checked===true){
             selectedmkfForFilter.push(value);
             getData();
+            // styling
+          
+            let popular = document.getElementById("popular")
+            popular.style.border="none"
+            popular.style.color=""
+            let hightolow  = document.getElementById("hightolow")
+            hightolow .style.border="none"
+            hightolow .style.color=""
+            let lowtohigh = document.getElementById("lowtohigh")
+            lowtohigh.style.border="none"
+            lowtohigh.style.color=""
+            let discount= document.getElementById("discount")
+            discount.style.border="none"
+            discount.style.color=""
         }
         else{
             for(let i=0; i<selectedmkfForFilter.length; i++){
@@ -699,13 +738,25 @@ function productPages(pageName){
 
 
     let selectedCategoriesForFilter = [];
-
     let executeCategories = false;
     function filterCategories(ele,ind,checked,value,input){
         executeCategories=true;
         if(checked===true){
             selectedCategoriesForFilter.push(value);
             getData();
+          
+            let popular = document.getElementById("popular")
+            popular.style.border="none"
+            popular.style.color=""
+            let hightolow  = document.getElementById("hightolow")
+            hightolow .style.border="none"
+            hightolow .style.color=""
+            let lowtohigh = document.getElementById("lowtohigh")
+            lowtohigh.style.border="none"
+            lowtohigh.style.color=""
+            let discount= document.getElementById("discount")
+            discount.style.border="none"
+            discount.style.color=""
         }
         else{
             for(let i=0; i<selectedCategoriesForFilter.length; i++){
@@ -722,3 +773,6 @@ function productPages(pageName){
 }
 
 export default productPages;
+
+
+

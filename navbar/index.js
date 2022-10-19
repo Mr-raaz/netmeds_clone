@@ -2,9 +2,22 @@ import * as comp from "./components/navbar.js";
 
 document.getElementById("main_navbar").innerHTML = comp.mainNavbar();
 
+
+
 // Code to Enable Search Functunality in any page Starts here..................
 
-document.getElementById("search_bar").addEventListener("input" , ()=>{
+document.getElementById("search_bar").addEventListener("keypress" , ()=>{
+    if(event.key == "Enter") {
+        localStorage.setItem("search" , document.getElementById("search_bar").value);
+        window.location.href = "SearchedPage/search.html"
+    }
+});
+
+document.getElementById("search_bar").addEventListener("input" , (e)=>{
+
+    if(e.keyCode == 13 || e.key == "Enter") {
+        alert("Enter found");
+    }
     
     let search_key = document.getElementById("search_bar").value;
 
@@ -40,6 +53,10 @@ async function getSearchData(user_key) {
             let li = document.createElement("li");
             li.innerText = prod_name;
 
+            li.addEventListener("click" , ()=>{
+                localStorage.setItem("clicked" , JSON.stringify(elem));
+                window.location.href = "Product_Description_page/productDetails.html";
+            })
             document.getElementById("search_append").append(li);
         }
     });

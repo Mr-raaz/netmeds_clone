@@ -531,6 +531,15 @@ import * as comp from "../components/navbar.js"
 
 document.getElementById("main_navbar").innerHTML = comp.mainNavbar();
 
+
+
+document.getElementById("search_bar").addEventListener("keypress" , ()=>{
+    if(event.key == "Enter") {
+        localStorage.setItem("search" , document.getElementById("search_bar").value);
+        window.location.href = "SearchedPage/search.html"
+    }
+});
+
 document.getElementById("search_bar").addEventListener("input" , ()=>{
     
     let search_key = document.getElementById("search_bar").value;
@@ -566,6 +575,11 @@ async function getSearchData(user_key) {
         if(str.includes(search_val)){
             let li = document.createElement("li");
             li.innerText = prod_name;
+
+            li.addEventListener("click" , ()=>{
+                localStorage.setItem("clicked" , JSON.stringify(elem));
+                window.location.href = "Product_Description_page/productDetails.html";
+            })
 
             document.getElementById("search_append").append(li);
         }
@@ -643,6 +657,8 @@ document.getElementById("logout_data").addEventListener("click" , ()=>{
       document.getElementById("updated_id").innerText = `${email22}`;
       localStorage.setItem("user_email", email22);
     }
+
+    window.location.reload();
   }
 
   document.getElementById("save_changes").addEventListener("click" , closePopup);

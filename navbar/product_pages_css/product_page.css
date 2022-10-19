@@ -33,6 +33,7 @@ body{
      width: 100%;
      display: flex;
      padding-bottom: px;
+     margin-top: 10px;
      background-color: #ebebec;
  }
 /* left box css */

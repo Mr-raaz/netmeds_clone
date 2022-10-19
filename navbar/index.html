@@ -69,7 +69,7 @@
 _____________________________________________________________________________________________________ -->
 
     <div class="other_three_section">
-        <div>
+        <div id="order_medicine_click">
             <div><img src="https://www.netmeds.com/assets/gloryweb/images/icons/Wellnessnew.svg" alt=""></div>
             <div class="other_section_inner_div">
                 <div><h3>Order Medicine</h3>
@@ -77,7 +77,7 @@ ________________________________________________________________________________
                 <div><i class="fa-solid fa-angle-right"></i></div>
             </div>
         </div>
-        <div class="mobile_res_offers">
+        <div class="mobile_res_offers" id="beauty_click">
             <div><img src="https://www.netmeds.com/assets/gloryweb/images/icons/Beautynew.svg" alt=""></div>
             <div class="other_section_inner_div">
                 <div><h3>Beauty</h3>
@@ -85,7 +85,7 @@ ________________________________________________________________________________
                 <div><i class="fa-solid fa-angle-right"></i></div>
             </div>
         </div>
-        <div  class="mobile_res_offers">
+        <div  class="mobile_res_offers" id="wellness_click">
             <div><img src="https://www.netmeds.com/assets/gloryweb/images/icons/ordermedicinnew.svg" alt=""></div>
             <div class="other_section_inner_div">
                 <div><h3>Wellness</h3>
@@ -140,7 +140,7 @@ ________________________________________________________________________________
 
         <div><h2>Beauty Products</h2>
             <p style="color: #5ba41c;">Save Upto 40% off</p>
-            <button class="exp_beauty">Explore Beauty</button>
+            <button class="exp_beauty" id="explore_beauty_click">Explore Beauty</button>
             </div>
             <div>
                 <img src="https://www.netmeds.com/assets/gloryweb/images/icons/new-icons/beauty_products.svg" alt="not found">
@@ -187,7 +187,7 @@ ________________________________________________________________________________
 
         <div class="lmt_slider">
             <div class="lmt_slider_inner lmt">
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" id="scalp_product_clicked" onclick="product_redirect(0);">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/362506/scalpe_plus_anti_dandruff_shampoo_75_ml_0_1.jpg" alt="not found">
 
@@ -204,7 +204,7 @@ ________________________________________________________________________________
 
                 
 
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" id="catapil_clicked" onclick="product_redirect(1)">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/828337/cetaphil_oily_skin_cleanser_125ml_0_0.jpg" alt="not found">
 
@@ -219,7 +219,7 @@ ________________________________________________________________________________
 
                 </div>
 
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" onclick="product_redirect(2)">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/411868/lacto_calamine_oil_balance_for_oily_skin_lotion_120_ml_0_3.jpg" alt="not found">
 
@@ -234,7 +234,7 @@ ________________________________________________________________________________
 
                 </div>
 
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" onclick="product_redirect(3)">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/404896/indulekha_bringha_oil_100_ml_0.jpg" alt="not found">
 
@@ -249,7 +249,7 @@ ________________________________________________________________________________
 
                 </div>
 
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" onclick="product_redirect(4)">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/1029265/cgg_cosmetics_sunshield_serum_for_all_skin_types_50_ml_423209_0_0.jpg" alt="not found">
 
@@ -264,7 +264,7 @@ ________________________________________________________________________________
 
                 </div>
 
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" onclick="product_redirect(5)">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/390287/galact_granules_200gm_0.jpg" alt="not found">
 
@@ -279,7 +279,7 @@ ________________________________________________________________________________
 
                 </div>
 
-                <div class="lmt_cart1">
+                <div class="lmt_cart1" onclick="product_redirect(7)">
                     <div class="cart2chec">
                         <img src="https://www.netmeds.com/images/product-v1/600x600/341494/liv_52_tablet_100_s_0.jpg" alt="not found">
 
@@ -306,29 +306,29 @@ ________________________________________________________________________________
     <p class="payment_partner_heading"><span>Shop by Category</span> <span>View All <i class="fa-solid fa-angle-right"></i></span></p>
 
     <div class="inner_category_div">
-        <div>
+        <div id="cat_dressing_section">
             <img src="https://www.netmeds.com/images/category/3107/thumb/dressing_1.jpg" alt="Not Found" />
             <h4>Dressing</h4>
         </div>
-        <div>
+        <div id="family_cat_sec">
 
             <img src="https://www.netmeds.com/images/category/501/thumb/family_nutrition_1.jpg" alt="Not Found" />
             <h4>Family Nutrition</h4>
 
         </div>
-        <div>
+        <div id="red_cat_sec">
 
             <img src="https://www.netmeds.com/images/category/3141/thumb/respiratory_supplies_1.jpg" alt="Not Found" />
             <h4>Respiratory Supplies</h4>
 
         </div>
-        <div>
+        <div id="lotion_cat_sec">
 
             <img src="https://www.netmeds.com/images/category/3758/thumb/lotions_creams_0.jpg" alt="Not Found" />
             <h4>Lotions & Creams</h4>
 
         </div>
-        <div class="mob_res_cat">
+        <div class="mob_res_cat" id="homeo_cat_sec">
 
             <img src="https://www.netmeds.com/images/category/v1/491/thumb/homeopathy_2.jpg" alt="Not Found" />
             <h4>Homeopathy</h4>
@@ -347,7 +347,7 @@ ________________________________________________________________________________
 
     <div class="lmt_slider">
         <div class="lmt_slider_inner lmt">
-            <div class="lmt_cart1">
+            <div class="lmt_cart1" onclick="beauty_car_red()">
                 <div class="cart2chec">
                     <img src="https://www.netmeds.com/images/cms/wysiwyg/brand/v2/msite/myglamm.jpg?v=10" alt="not found">
 
@@ -357,7 +357,7 @@ ________________________________________________________________________________
 
             </div>
 
-            <div class="lmt_cart1">
+            <div class="lmt_cart1" onclick="beauty_car_red()">
                 <div class="cart2chec">
                     <img src="https://www.netmeds.com/images/cms/wysiwyg/brand/v2/msite/colorbar.jpg?v=10" alt="not found">
                     <h4 class="beauty_section_h4">Colorbar</h4>
@@ -366,7 +366,7 @@ ________________________________________________________________________________
 
             </div>
 
-            <div class="lmt_cart1">
+            <div class="lmt_cart1" onclick="beauty_car_red()">
                 <div class="cart2chec">
                     <img src="https://www.netmeds.com/images/cms/wysiwyg/brand/v2/msite/plum.jpg?v=10" alt="not found">
 
@@ -376,7 +376,7 @@ ________________________________________________________________________________
 
             </div>
 
-            <div class="lmt_cart1">
+            <div class="lmt_cart1" onclick="beauty_car_red()">
                 <div class="cart2chec">
                     <img src="https://www.netmeds.com/images/cms/wysiwyg/brand/v2/msite/revlon.jpg?v=10" alt="not found">
 
@@ -386,7 +386,7 @@ ________________________________________________________________________________
 
             </div>
 
-            <div class="lmt_cart1">
+            <div class="lmt_cart1" onclick="beauty_car_red()">
                 <div class="cart2chec">
                     <img src="https://www.netmeds.com/images/cms/wysiwyg/brand/v2/msite/lotus.jpg?v=10" alt="not found">
 
@@ -396,7 +396,7 @@ ________________________________________________________________________________
 
             </div>
 
-            <div class="lmt_cart1">
+            <div class="lmt_cart1" onclick="beauty_car_red()" >
                 <div class="cart2chec">
                     <img src="https://www.netmeds.com/images/cms/wysiwyg/brand/v2/msite/faces-canada.jpg?v=10" alt="not found">
 
@@ -514,7 +514,7 @@ ________________________________________________________________________________
         </ul>
     </div>
 </footer>
-
+    <script src="click_event.js"></script>
     <script type="module" src="index.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

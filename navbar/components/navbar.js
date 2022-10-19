@@ -104,15 +104,15 @@ function mainNavbar(){
 
             <div class="hidden_div second_hidden_box">
                 <ul>
-                    <li>All Medicines</li>
-                    <li>Previously Ordered Medicines</li>
+                    <li><a href = "product_pages_html/product_page_CovidEssentials.html">All Medicines</a></li>
+                    <li><a href="profile.html">Previously Ordered Medicines</a></li>
                 </ul>
             </div>
 
         </div>
         <div>
             <img src="https://www.netmeds.com/assets/gloryweb/images/icons/wellness.svg" alt="">
-            <h5>&nbsp; &nbsp; Wellness</h5>
+            <h5>&nbsp; &nbsp; <a class="wellness_link" href="product_pages_html/product_page_Cough&Cold.html">Wellness</a></h5>
 
         </div>
         <div >
@@ -126,12 +126,12 @@ function mainNavbar(){
 
             <div class="hidden_div">
                 <ul>
-                    <li>Personal Care</li>
-                    <li>Make-Up</li>
-                    <li>Hair</li>
-                    <li>Skin Care</li>
-                    <li>Tool's & Appliances</li>
-                    <li>Mom & Baby</li>
+                    <li><a href="product_pages_html/product_page_beauty_personalcare.html">Personal Care</a></li>
+                    <li><a href="product_pages_html/product_page_FaceMakeup.html">Make-Up</a></li>
+                    <li><a href="product_pages_html/product_page_Hair.html">Hair</a></li>
+                    <li><a href="product_pages_html/product_page_Men'sGrooming.html">Skin Care</a></li>
+                    <li><a href="product_pages_html/product_page_Devices.html">Tool's & Appliances</a></li>
+                    <li><a href="product_pages_html/product_page_Mom&Baby.html">Mom & Baby</a></li>
                 </ul>
             </div>
 

@@ -230,8 +230,12 @@ ________________________________________________________________________________
     list-style: none;
     width: 100%;
 }
-.hidden_div > ul > li {
+.hidden_div > ul > li  {
     padding: 10px;
+}
+
+.hidden_div a{
+    color: rgb(105, 105, 105);
 }
 
 .testing:hover .hidden_div {
@@ -244,6 +248,12 @@ ________________________________________________________________________________
     background-color: white;
     color: #24aeb1;
     cursor: pointer;
+}
+.hidden_div > ul > li a:hover{
+    color: #24aeb1;
+}
+.wellness_link{
+    color: #f3f7fb;
 }
 
 /* ___________________________________________________________________________________________________
