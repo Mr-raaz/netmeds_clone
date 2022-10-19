@@ -63,7 +63,7 @@ function mainNavbar(){
         </div>
         <div class="search_bar_section">
             <label class="input_box_label" > 
-                <input type="search" id="search_bar" placeholder="Search for medicine & wellness products..." />
+                <input type="search" id="search_bar" placeholder="Search for medicine & wellness products..." autocomplete="off" />
 
                 
 
