@@ -176,7 +176,7 @@ function payment(random) {
                 h3.innerText = "Payment Successful";
                 h3.style.color = "green";
                 img.style.marginTop = "10px";
-                p.innerText = "redirecting to home page";
+                p.innerText = "Processing your order...";
                 redirect("../order_placed.html");
                 localStorage.setItem("orderHistory", JSON.stringify(cart));
                 localStorage.removeItem("cartitems");
