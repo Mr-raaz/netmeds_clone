@@ -58,7 +58,7 @@
  
   # 🔹 Payment Page
  <p>The Homepage of netmeds has various features like login / signup , search bar and  Category Of products that they offer...</p>
- <img src="https://lh3.googleusercontent.com/drive-viewer/AJc5JmSnZn3Ib24WaDHCLiEzPMcXpRRElCtVPAxr3vEmXTKokFYxUCGJSftHXymr-Ajv3ZuDn7BNMVM=w1920-h972"/>
+ <img src="img/payment.png"/>
  
     
  # <img src="https://cdn-icons-png.flaticon.com/512/1934/1934019.png" width="25px"/> Challenges :
@@ -70,7 +70,7 @@
  
  # 🚀 Demo :
  
- <p><a href ="www.google.com" ><img src = "https://camo.githubusercontent.com/59cde2396da07f6c391795028e4350eb3a99c0186d55161807728d44200c6959/68747470733a2f2f6170692e6e65746c6966792e636f6d2f6170692f76312f6261646765732f62363534633934652d303861362d346237392d623434332d3738333735383162316438642f6465706c6f792d737461747573"/></a></p>
+ <p><a href ="https://symphonious-cucurucho-322130.netlify.app/" ><img src = "https://camo.githubusercontent.com/59cde2396da07f6c391795028e4350eb3a99c0186d55161807728d44200c6959/68747470733a2f2f6170692e6e65746c6966792e636f6d2f6170692f76312f6261646765732f62363534633934652d303861362d346237392d623434332d3738333735383162316438642f6465706c6f792d737461747573"/></a></p>
  
   
   
