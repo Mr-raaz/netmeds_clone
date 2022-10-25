@@ -49,15 +49,15 @@
  <img src="https://lh3.googleusercontent.com/drive-viewer/AJc5JmQK-FR62BJXRWcUmTrgTr34aXYiNAuBQ1A6o362iO7bZWQzjd-wTcTaqToONDEiRBjmjeYn-uA=w1920-h972"/>
  
  # 🔹 Product Description
- <p>The Homepage of netmeds has various features like login / signup , search bar and  Category Of products that they offer...</p>
- <img src="https://lh3.googleusercontent.com/drive-viewer/AJc5JmSnZn3Ib24WaDHCLiEzPMcXpRRElCtVPAxr3vEmXTKokFYxUCGJSftHXymr-Ajv3ZuDn7BNMVM=w1920-h972"/>
+ <p>In product description page you can easily see all the required detail about the any perticular product......</p>
+ <img src="img/des.png"/>
  
   # 🔹 Cart Page
- <p>The Homepage of netmeds has various features like login / signup , search bar and  Category Of products that they offer...</p>
- <img src="https://lh3.googleusercontent.com/drive-viewer/AJc5JmSnZn3Ib24WaDHCLiEzPMcXpRRElCtVPAxr3vEmXTKokFYxUCGJSftHXymr-Ajv3ZuDn7BNMVM=w1920-h972"/>
+ <p>In this cart page you can increase or decrease the item quantity accodingly and then can checkout .....</p>
+ <img src="img/cart.png"/>
  
   # 🔹 Payment Page
- <p>The Homepage of netmeds has various features like login / signup , search bar and  Category Of products that they offer...</p>
+ <p>The Payment Page has many payment methods like phonepe , paytm and cod user can pay according to their choice.....</p>
  <img src="img/payment.png"/>
  
     
